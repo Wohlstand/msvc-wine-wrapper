@@ -1,0 +1,15 @@
+#!/bin/bash
+
+cmake \
+    -DCMAKE_CROSSCOMPILING=ON \
+    -DCMAKE_BUILD_TYPE=Release \
+    -DCMAKE_TOOLCHAIN_FILE=$PWD/WineMSVC/cmake/CrossWindows.cmake \
+    -DCMAKE_C_COMPILER=wx-cl \
+    -DCMAKE_CXX_COMPILER=wx-cl \
+    -DCMAKE_LINKER=wx-link \
+    -DCMAKE_RC_COMPILER=wx-rc \
+    -DCMAKE_MT=wx-mt \
+    -G Ninja \
+    -DCMAKE_MAKE_PROGRAM=/usr/bin/ninja \
+    $*
+

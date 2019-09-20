@@ -1,0 +1,6 @@
+#!/bin/bash
+
+source _msvc_wine_wrapper_common.sh
+
+wine rc.exe ${MSVC_TO_ARGS}
+
