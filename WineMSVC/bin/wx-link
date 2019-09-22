@@ -4,3 +4,12 @@ source _msvc_wine_wrapper_common.sh
 
 wine link.exe ${MSVC_TO_ARGS}
 
+KODE=$?
+if [[ ! $KODE -eq 0 ]]
+then
+    printf "====COMMAND: wine link.exe ${MSVC_TO_ARGS}\n"
+    printf "====ORIG_ARGS-D: wx-link  ${ORIG_ARGS}\n"
+    echo "Returned code: $KODE"
+    exit $KODE
+fi
+

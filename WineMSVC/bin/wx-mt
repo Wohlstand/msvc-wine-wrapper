@@ -4,9 +4,11 @@ source _msvc_wine_wrapper_common.sh
 
 wine mt.exe ${MSVC_TO_ARGS}
 
-if [[ ! $? -eq 0 ]]
+KODE=$?
+if [[ ! $KODE -eq 0 ]]
 then
     printf "====COMMAND: wine mt.exe ${MSVC_TO_ARGS}\n"
-    echo "Returned code: $?"
+    echo "Returned code: $KODE"
+    exit 0 # WORKAROUND: It fails even on Windows since some moment... possible CMake-side bug
 fi
 
