@@ -2,5 +2,14 @@
 
 source _msvc_wine_wrapper_common.sh
 
-wine cl.exe ${MSVC_TO_ARGS}
+wine cl.exe -DWIN32 -D_WIN32 ${MSVC_TO_ARGS}
+
+KODE=$?
+if [[ ! $KODE -eq 0 ]]
+then
+    printf "====COMMAND: cl.exe ${MSVC_TO_ARGS}\n"
+    printf "====ORIG_ARGS-D: wx-link  ${ORIG_ARGS}\n"
+    echo "Returned code: $KODE"
+    exit $KODE
+fi
 
