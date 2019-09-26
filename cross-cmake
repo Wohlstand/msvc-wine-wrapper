@@ -7,11 +7,6 @@ else
         -DCMAKE_CROSSCOMPILING=ON \
         -DCMAKE_BUILD_TYPE=Release \
         -DCMAKE_TOOLCHAIN_FILE=${WINE_CROSSTOOLCHAIN}/CrossWindows.cmake \
-        -DCMAKE_C_COMPILER=wx-cl \
-        -DCMAKE_CXX_COMPILER=wx-cl \
-        -DCMAKE_LINKER=wx-link \
-        -DCMAKE_RC_COMPILER=wx-rc \
-        -DCMAKE_MT=wx-mt \
         \
         "$@"
 fi
