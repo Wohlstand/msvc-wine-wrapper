@@ -29,6 +29,19 @@ vcmeta
 "WindowsSDKLibVersion"="winv6.3\\"
 "WindowsSDKVersion"="\\"
 
+# Bash environment
+export WINEDEBUG='-all'
+export PATH="${PWD}/WineMSVC/bin/:$PATH"
+export WINDOWS_KIT="C:\\Program Files (x86)\\Windows Kits\\8.1"
+export VS_HOME="C:\\Program Files (x86)\\Microsoft Visual Studio 12.0"
+export WINEPATH="${VS_HOME}\\VC\\bin;${VS_HOME}\\VC\\VCPackages;${WINDOWS_KIT}\\bin\\x86;C:\\Windows;C:\\Windows\\system32"
+export WINEDLLOVERRIDES="*msvc*120,c1,c1ast,c1xx,msvcirt,msvcp120,msvcp120d,msvcr120,msvcr120d,vccorlib120d,vcmeta=n"
+export INCLUDE="${VS_HOME}\\VC\\include;${WINDOWS_KIT}\\include\\shared;${WINDOWS_KIT}\\include\\um;${WINDOWS_KIT}\\include\\winrt"
+export LIB="${VS_HOME}\\VC\\lib;${WINDOWS_KIT}\\lib\\winv6.3\\um\\x86;C:\\src\\sdk120\\lib"
+export LIBPATH="${VS_HOME}\\VC\\LIB;${WINDOWS_KIT}\\References\\CommonConfiguration\\Neutral"
+export VS120COMNTOOLS="C:\\Program Files\\Microsoft Visual Studio 12.0\\Common7\\Tools\\"
+
+
 ==== (Visual Studio 2015) ====
 Since it's hard to use official installer here, is possible to just copy all necessary files manually
 (no need to make any registry changes except of environment variables with paths):
