@@ -9,5 +9,10 @@ set(CMAKE_LINKER wx-link)
 set(CMAKE_MT wx-mt)
 set(CMAKE_RC_COMPILER wx-rc)
 
+# Don't try to run compiler check, otherwise, it may just stuck
+set(CMAKE_TRY_COMPILE_TARGET_TYPE STATIC_LIBRARY)
+set(CMAKE_C_COMPILER_FORCED TRUE)
+set(CMAKE_CXX_COMPILER_FORCED TRUE)
+
 include(Platform/Windows)
 
