@@ -24,7 +24,11 @@ do
         key=${var::2}
         val="$(unixToWin "${var:2}")"
         MSVC_TO_ARGS="${MSVC_TO_ARGS} ${key}${val}"
-    elif [[ "${var::5}" == "/out:" ]]; then
+    elif [[ ("${var::2}" == "/F") && (-d "${var:3}" || -f "${var:3}") ]]; then
+        key=${var::3}
+        val="$(unixToWin "${var:3}")"
+        MSVC_TO_ARGS="${MSVC_TO_ARGS} ${key}${val}"
+    elif [[ "${var::5}" == "/out:" || "${var::5}" == "/OUT:" ]]; then
         key=${var::5}
         val="$(unixToWin "${var:5}")"
         MSVC_TO_ARGS="${MSVC_TO_ARGS} ${key}${val}"
