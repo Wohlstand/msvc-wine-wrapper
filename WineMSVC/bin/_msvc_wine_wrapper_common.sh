@@ -15,8 +15,8 @@ MSVC_TO_ARGS=
 for var in "$@"
 do
     if [[ ("${var}" != "/lib") && ("${var}" != "/bin") && ("${var::1}" == "/") && (-d "$var" || -f "$var") ]]; then
-        val="`winepath --windows \"$var\"`"
-        MSVC_TO_ARGS="${MSVC_TO_ARGS} $val"
+        val="$(unixToWin "${var}")"
+        MSVC_TO_ARGS="${MSVC_TO_ARGS} ${val}"
     elif [[ ("${var}" != "/lib") && ("${var}" != "/bin") && (-d "$var" || -f "$var") ]]; then
         val="$(unixToWin ${var})"
         MSVC_TO_ARGS="${MSVC_TO_ARGS} $val"
