@@ -2,9 +2,9 @@
 
 source _msvc_wine_wrapper_common.sh
 
-wine mt.exe ${MSVC_TO_ARGS}
-
+wine mt.exe ${MSVC_TO_ARGS} 2>/dev/null # Unfortunately, it may stuck on this step
 KODE=$?
+
 if [[ ! $KODE -eq 0 ]]
 then
     printf "====COMMAND: wine mt.exe ${MSVC_TO_ARGS}\n"
@@ -12,3 +12,4 @@ then
     exit 0 # WORKAROUND: It fails even on Windows since some moment... possible CMake-side bug
 fi
 
+exit 0

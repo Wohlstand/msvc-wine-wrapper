@@ -3,4 +3,14 @@
 source _msvc_wine_wrapper_common.sh
 
 wine rc.exe ${MSVC_TO_ARGS}
+KODE=$?
 
+if [[ ! $KODE -eq 0 ]]
+then
+    printf "====COMMAND: rc.exe ${MSVC_TO_ARGS}\n"
+    printf "====ORIG_ARGS-D: wx-rc  ${ORIG_ARGS}\n"
+    echo "Returned code: $KODE"
+    exit $KODE
+fi
+
+exit 0

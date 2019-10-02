@@ -3,8 +3,8 @@
 source _msvc_wine_wrapper_common.sh
 
 wine cl.exe -DWIN32 -D_WIN32 ${MSVC_TO_ARGS}
-
 KODE=$?
+
 if [[ ! $KODE -eq 0 ]]
 then
     printf "====COMMAND: cl.exe ${MSVC_TO_ARGS}\n"
@@ -13,3 +13,4 @@ then
     exit $KODE
 fi
 
+exit 0
