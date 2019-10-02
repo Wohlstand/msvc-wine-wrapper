@@ -16,9 +16,9 @@ function unixToWin()
     elif [[ "${val::1}" == "/" ]]; then
         val="`winepath --windows \"${val}\"`" # Convert absolute path
     else
-        val="${val//\//\\\\}" # Convert relative path
+        val="${val//\//\\}" # Convert relative path
     fi
-    echo -n "${val}"
+    printf "%q" ${val}
 }
 
 ORIG_ARGS=$@

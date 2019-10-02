@@ -2,7 +2,7 @@
 
 source _msvc_wine_wrapper_common.sh
 
-wine link.exe ${MSVC_TO_ARGS} 2>/dev/null # Unfortunately, it may stuck on this step
+wine link.exe ${MSVC_TO_ARGS}
 KODE=$?
 
 if [[ ! $KODE -eq 0 ]]

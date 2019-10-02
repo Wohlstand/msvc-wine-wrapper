@@ -7,7 +7,7 @@ KODE=$?
 
 if [[ ! $KODE -eq 0 ]]
 then
-    printf "====COMMAND: rc.exe ${MSVC_TO_ARGS}\n"
+    printf "====COMMAND: wine rc.exe ${MSVC_TO_ARGS}\n"
     printf "====ORIG_ARGS-D: wx-rc  ${ORIG_ARGS}\n"
     echo "Returned code: $KODE"
     exit $KODE
