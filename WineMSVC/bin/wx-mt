@@ -2,7 +2,7 @@
 
 source _msvc_wine_wrapper_common.sh
 
-wine mt.exe ${MSVC_TO_ARGS}
+wine mt.exe ${MSVC_TO_ARGS} 2>/dev/null
 KODE=$?
 
 if [[ ! $KODE -eq 0 ]]
